@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:ivy="antlib:org.apache.ivy.ant" name="menagerie" basedir="." default="publish-local">
+
+    <property name="dir.prep.repository" value="${basedir}/repo" />
+
+    <target name="publish-local">
+        <ivy:configure file="ivysettings.xml"/>
+        <delete dir="dir.prep.repository" />
+        <ivy:resolve />
+        <ivy:publish resolver="nisc-local-repository" artifactspattern="${basedir}/target/[artifact]-[revision].[ext]" overwrite="true" update="true"/>
+        <ivy:publish resolver="prep-repository" artifactspattern="${basedir}/target/[artifact]-[revision].[ext]" overwrite="true" update="true"/>
+    </target>
+
+</project>

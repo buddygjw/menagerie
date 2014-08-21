@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.menagerie</groupId>
     <artifactId>menagerie</artifactId>
-    <version>1.2-SNAPSHOT</version>
+    <version>1.2</version>
     <name>Menagerie -- Distributed Java Concurrency</name>
     <url>http://github.com/openUtility/menagerie</url>
 

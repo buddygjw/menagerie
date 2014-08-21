@@ -1,0 +1,33 @@
+<ivysettings>
+    <settings defaultResolver="nisc-only"/>		<!-- in order to get all revisions without any eviction -->
+
+    <resolvers>
+        <filesystem name="nisc-local-repository">
+            <ivy pattern="${user.home}/.ivy2/nisc/[organisation]/[module]/[revision]/[type]s/[artifact].[ext]"/>
+            <artifact pattern="${user.home}/.ivy2/nisc/[organisation]/[module]/[revision]/[type]s/[artifact].[ext]"/>
+        </filesystem>
+
+        <filesystem name="prep-repository">
+            <ivy pattern="${dir.prep.repository}/[organisation]/[module]/[revision]/[type]s/[artifact].[ext]"/>
+            <artifact pattern="${dir.prep.repository}/[organisation]/[module]/[revision]/[type]s/[artifact].[ext]"/>
+        </filesystem>
+
+        <url name="nisc-app-repository">
+            <ivy pattern="http://ivy.cloud.dev/nisc-repo/[organisation]/[module]/[revision]/[type]s/[artifact].[ext]" />
+            <artifact pattern="http://ivy.cloud.dev/nisc-repo/[organisation]/[module]/[revision]/[type]s/[artifact].[ext]" />
+        </url>
+
+        <url name="nisc-thirdparty-repository">
+            <ivy pattern="http://ivy.cloud.dev/repo/[organisation]/[module]/[revision]/[type]s/[artifact].[ext]" />
+            <artifact pattern="http://ivy.cloud.dev/repo/[organisation]/[module]/[revision]/[type]s/[artifact].[ext]" />
+        </url>
+
+        <ibiblio name="public" m2compatible="true"/>
+
+        <chain name="nisc-only" returnFirst="true">
+            <resolver ref="nisc-local-repository" />
+            <resolver ref="nisc-app-repository" />
+            <resolver ref="nisc-thirdparty-repository" />
+        </chain>
+    </resolvers>
+</ivysettings>
